@@ -87,7 +87,7 @@ public class ResourceUtils {
         String resourcePath = getResourcePath(absolutePackagePath, resourceName);
         URL resource = null;
         // first attempt - outside/inside jar file
-        resource = clazz.getClass().getResource(resourcePath);
+        resource = clazz.getClassLoader().getResource(resourcePath);
         // second attempt - servlet container - inside application lib folder
         if (resource == null) {
             if (resourcePath.charAt(0) == '/') {
